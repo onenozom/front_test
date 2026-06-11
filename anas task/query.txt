@@ -1,0 +1,23 @@
+Act as a Senior Frontend Engineer. I need you to build a highly scalable, real-time remote monitoring Proctor Dashboard using React (Plain JavaScript, NOT TypeScript) and styled with Tailwind CSS.
+
+### Project Context & Core Concept:
+This dashboard is used by an exam proctor in a closed testing hall to monitor multiple trainees performing physical fitness tests simultaneously. The AI processing and video decoding are handled by a backend server. The React frontend is purely a dynamic, high-performance renderer and event listener.
+
+### Key Features to Implement:
+1. Test Selection Screen: Initial screen allowing the proctor to choose the test type: "Push-ups", "Sit-ups", or "Pull-ups".
+2. Start Test System: A "Start" button that activates the live streams for a strict 2-minute countdown timer (120 seconds).
+3. Dynamic Camera Grid: Once started, the dashboard fetches or receives a dynamic list of active cameras (up to a maximum of 10 cameras). The grid must automatically scale and tile using Tailwind CSS based on the number of active cameras (e.g., 1 cam = full screen, 2-4 cams = 2x2, 5-9 cams = 3x3, 10 cams = optimized grid).
+4. Reusable Trainee Card: Each camera tile must display the Trainee's Name/ID, a live video player (mocked via a placeholder or standard <video>/<canvas> approach ready for an npm package like 'rtsp-video-stream-player' or WebSockets), a large real-time Rep Counter, and a visual status border (Green for perfect form, flashing Red for form errors).
+
+### Architectural & Performance Requirements:
+- Pure JavaScript: Do NOT use TypeScript. Keep code clean and well-commented.
+- Performance Isolation: Optimize components using React hooks (`useRef`, `useCallback`, `useEffect`) to ensure that high-frequency rep updates or video frames in one Trainee Card do NOT trigger global re-renders of the entire dashboard.
+- Future Expandability: Code must be modular so I can easily add new test types or modify the UI logic later.
+
+### What I need from you:
+Please provide a complete breakdown of the project architecture. Structure your response into distinct, copy-pasteable files:
+1. `App.js` (State orchestrator, test selection, timer logic, global WebSocket listener mock).
+2. `components/TraineeGrid.js` (Dynamic Tailwind layout logic based on camera count).
+3. `components/TraineeCard.js` (Isolated performance card handling individual video and rep updates via refs).
+
+CRITICAL REQUIREMENT: Please explain the entire architecture, how the dynamic grid works, and how the performance isolation is achieved in English and ARABIC (باللغة العربية والانجليزية) with detailed step-by-step documentation so I can deeply understand and modify it in the future.
